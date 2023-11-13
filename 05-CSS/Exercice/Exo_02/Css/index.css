@@ -58,6 +58,7 @@ optgroup{
     background-color: white;
 }
 form{
+    
     position: absolute;
 
  left: 25%;
@@ -65,12 +66,14 @@ form{
  right: 25%;
     color: white;
     
+    
 
     
 }
 fieldset{
     border-radius: 25px;
     padding: 25px;
+    
     
 }
 textarea{
@@ -101,4 +104,11 @@ a:hover{
 }
 a{
     margin: 0 5 0 5;
+}
+fieldset {
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+legend, label{
+    background: transparent;
 }
