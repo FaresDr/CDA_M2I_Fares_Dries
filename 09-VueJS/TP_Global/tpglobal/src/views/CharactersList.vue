@@ -1,10 +1,13 @@
 <script setup>
 const input = document.querySelector("input");
 const log = document.getElementById("values");
+import FooterComponent from "../components/FooterComponent.vue"
 import { ref, onMounted } from 'vue';
 
 import { useCharactersStore } from '../stores/characters'
 import Card from '../components/CardComponent.vue';
+import HeaderComponent from "@/components/HeaderComponent.vue";
+import router from "@/router";
 
 let data = ref();
 let nbPage = ref(1);
@@ -24,6 +27,10 @@ onMounted(() => {
   getCharacterByPage(nbPage, name, status, gender, species, type);
   console.log(data);
 });
+
+function logout(){
+  router.push('/')
+}
 
 function onChangeGender(event) {
 
@@ -53,6 +60,7 @@ function onChangeType(event) {
   getCharacterByPage(nbPage, name, status, gender, species, type);
 }
 function handleInput(event) {
+  nbPage=1
   name = event.target.value;
   getCharacterByPage(nbPage, name, status, gender, species, type);
 }
@@ -63,12 +71,17 @@ function clearFilter() {
   type = ""
   status = ""
   name = ""
+  nbPage = 1
   getCharacterByPage(nbPage, name, status, gender, species, type);
+
   select_Gender.value="";
   select_Status.value="";
   select_Species.value="";
   select_Type.value="";
+
 }
+
+
 
 
 
@@ -77,13 +90,16 @@ function clearFilter() {
 
 <template>
   <header>
+    <HeaderComponent/>
+    <button @click="logout">Logout</button>
+    <div class="bg">
     <span v-if="!filter" @click="filter= !filter"><svg xmlns="http://www.w3.org/2000/svg"    width="50" height="50" fill="transparent" stroke="lightgreen" stroke-width="1" class="bi bi-funnel-fill" viewBox="0 0 16 16">
   <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z"/>
 </svg></span>
 <span v-else @click="filter= !filter"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" stroke="lightgreen" stroke-width="1" class="bi bi-funnel" viewBox="0 0 16 16">
   <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
 </svg></span>
-    
+  
     <div v-if="filter">
       <input class="search" type="text" v-model="name" placeholder="Enter un nom" @input="handleInput" />
       <br />
@@ -295,9 +311,9 @@ function clearFilter() {
  
     <button @click="clearFilter">Clear filter</button>
   </div>
+  </div>
   </header>
-
-
+  <div class="bg">
   <div class="character-card-container">
     <Card v-if="personnageStore.data" v-for="character in personnageStore.data.results" :key="character.id"
       :character-list="character" :id="character.id" />
@@ -321,11 +337,17 @@ function clearFilter() {
     <button
       @click="nbPage = personnageStore.data.info.pages, getCharacterByPage(nbPage, name, status, gender, species, type);;">LAST</button>
   </div>
+</div>
+  <footer>
+    <FooterComponent/>
+    </footer>
 </template>
 
 
 
 <style scoped>
+
+
 .naviguation {
   display: flex;
   justify-content: center;
@@ -366,4 +388,6 @@ select {
   border: thick solid greenyellow;
   border-radius: 100px;
 }
+
+
 </style>

@@ -1,7 +1,7 @@
 <script setup>
 import CharactersList from "./views/CharactersList.vue"
 import FooterComponent from "./components/FooterComponent.vue"
-
+import { RouterView } from "vue-router";
 
 
  
@@ -9,19 +9,15 @@ import FooterComponent from "./components/FooterComponent.vue"
 </script>
 
 <template>
-  <header>
-        <h1>
-            TP Rick & Morty
-        </h1>
-    </header>
+
   
 
 
-  <CharactersList/>
+  
 
-  <footer>
-  <FooterComponent/>
-  </footer>
+<RouterView/>
+  
+  
 </template>
 
 
