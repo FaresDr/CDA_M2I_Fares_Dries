@@ -27,7 +27,7 @@ console.log(contactFound);
     <h2>Job Profile : {{ contact[contactId].jobProfile }}</h2>
     <h2>Additional Info : {{ contact[contactId].additionalInfo }}</h2>
     <RouterLink :to="`/`">
-            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-primary">Retour à l'accueil</button>
     </RouterLink>
 
     

@@ -8,14 +8,14 @@ console.log(contact);
 <template>
     <h3 v-if="contact.length" class="mt-4"> Liste des tâches : </h3>
     <ul>
-        <div class="card" width="150px" v-for="(name, id) in contact">
+        <div class="card" width="150px" v-for="(name) in contact">
            
            <h2 card-title>{{ name.name }}</h2>
             <h2 card-title>{{ name.email }}</h2>
             <h2 card-title>{{ name.phone }}</h2>
             
                 <RouterLink :to="`/contact/${name.id-1}`">
-                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-primary">Cliquez ici pour le détail</button>
             </RouterLink>
         </div>
     </ul>
