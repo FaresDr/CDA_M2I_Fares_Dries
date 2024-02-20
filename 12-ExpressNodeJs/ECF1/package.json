@@ -1,5 +1,5 @@
 {
-  "name": "exo_users",
+  "name": "ecf1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,12 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.9.1",
-    "nodemon": "^3.0.3",
-    "router": "^1.3.8",
-    "sequelize": "^6.36.0"
+    "cors": "^2.8.5"
   }
 }
