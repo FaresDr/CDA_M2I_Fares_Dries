@@ -1,16 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import FormComponent from './components/FormComponent/FormComponent';
-import ListingComponent from './components/TableComponent/TableComponent';
+import TableComponent from './components/TableComponent/TableComponent';
 import { useState } from 'react';
 
 
 function App() {
   const [liste,setList] = useState([])
 
-  const addElementToListing = (person) => {   
-    console.log(person); 
-    console.log(liste);    
+  const addToList = (person) => {       
    setList([...liste,person]) 
   }
 
@@ -18,8 +16,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <FormComponent addToList={addElementToListing}/>
-        <ListingComponent liste = {liste}/>
+        <FormComponent addToList={addToList}/>
+        <TableComponent liste = {liste}/>
         
       </header>
     </div>

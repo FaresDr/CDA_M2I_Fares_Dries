@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 
-const ListingComponent = (props) => {
+const TableComponent = (props) => {
 const {liste} = props
-console.log(liste);
+
 
   return ( 
     <div>
@@ -25,8 +25,8 @@ console.log(liste);
           liste.map((e, index) => (
             <tr key={index}>
               <td>{index+1}</td>
-              <td>{e.firstname}</td>
               <td>{e.lastname}</td>
+              <td>{e.firstname}</td>
               <td>{e.email}</td>
             </tr>
           ))
@@ -38,4 +38,4 @@ console.log(liste);
    );
 }
  
-export default ListingComponent;
+export default TableComponent;
