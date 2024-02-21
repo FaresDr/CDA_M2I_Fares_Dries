@@ -14,7 +14,7 @@ const LoginFormComponent = (props) => {
 
   function Verify (){
     Recup(usernameRef.current.value,passwordRef.current.value)
-    if(usernameRef.current.value != ValidUser ||passwordRef.current.value != ValidPassword){
+    if(usernameRef.current.value != ValidUser || passwordRef.current.value != ValidPassword){
         console.log("Erreur le mot de passe ou l'utilisateur est incorrect");
     }else{
         console.log("Bienvenue " + usernameRef.current.value);
