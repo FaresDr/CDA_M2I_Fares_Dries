@@ -24,6 +24,7 @@ const DisplayTodoComponent = (props) => {
     setIsDone({
         ...isDone,
         [index]: !isDone[index],
+
     });
 };
   
