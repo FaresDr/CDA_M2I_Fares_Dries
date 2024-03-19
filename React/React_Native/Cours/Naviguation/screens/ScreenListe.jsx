@@ -1,15 +1,24 @@
 import { FlatList, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import contactlist from '../data'
+import React, { useState,useEffect } from 'react'
+import axios from 'axios'
+
 
 export default function ScreenListe({navigation}) {
+    const [contactlist,Setcontactlist] = useState([])
+    useEffect(() => {    
+       
+            axios.get("https://jsonplaceholder.typicode.com/users")
+            .then(response => Setcontactlist(response.data))
+            .catch(error => console.log(error))
+        
+      });
     return (
         <View style={styles.container}>
             <FlatList data={contactlist} renderItem={(itemData) => {
                 return (
-                    <TouchableOpacity style={styles.contact} onPress={() => navigation.navigate("DetailContact" , {nom : itemData.item.nom, prenom : itemData.item.prenom, phone : itemData.item.phone_number, location : itemData.item.Location})}>
+                    <TouchableOpacity style={styles.contact} onPress={() => navigation.navigate("DetailContact" , {nom : itemData.item.name, pseudo : itemData.item.username, phone : itemData.item.phone, website : itemData.item.website})}>
                         <View >
-                            <Text style={styles.text}>{itemData.item.nom}   {itemData.item.prenom}</Text>
+                            <Text style={styles.text}>{itemData.item.name} </Text>
                         </View>
                     </TouchableOpacity>
                 )
