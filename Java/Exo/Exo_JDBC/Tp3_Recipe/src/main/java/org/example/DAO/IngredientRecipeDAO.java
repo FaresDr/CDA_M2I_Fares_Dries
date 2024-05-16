@@ -59,12 +59,12 @@ public class IngredientRecipeDAO extends BaseDAO<IngredientRecipe>{
     public List<Ingredient> getByRecipeId(int id) throws SQLException{
         List<Ingredient> ingredients = new ArrayList<>();
         connection = DataBaseManager.getConnection();
-        request ="SELECT i.name as name , ir.quantity as quantity FROM ingredient as i INNER JOIN ingredient_recipe as ir on ir.id_ingredient = i.id WHERE ir.id_recipe = ?";
+        request ="SELECT i.name as name , ir.quantity as quantity, i.id as id FROM ingredient as i INNER JOIN ingredient_recipe as ir on ir.id_ingredient = i.id WHERE ir.id_recipe = ?";
         statement = connection.prepareStatement(request);
         statement.setInt(1,id);
         resultSet = statement.executeQuery();
         while (resultSet.next()){
-            ingredients.add(Ingredient.builder().nom(resultSet.getString("name")).quantity(resultSet.getInt("quantity")).build());
+            ingredients.add(Ingredient.builder().nom(resultSet.getString("name")).quantity(resultSet.getString("quantity")).id(resultSet.getInt("id")).build());
         }
         return ingredients;
     }

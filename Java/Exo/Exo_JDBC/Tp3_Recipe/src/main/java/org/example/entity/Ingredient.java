@@ -12,11 +12,12 @@ public class Ingredient {
 
     private String nom;
 
-    private int quantity;
+    private String quantity;
 
     @Override
     public String toString() {
         return "Ingredient{" +
+                "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", quantity=" + quantity +
                 '}';
