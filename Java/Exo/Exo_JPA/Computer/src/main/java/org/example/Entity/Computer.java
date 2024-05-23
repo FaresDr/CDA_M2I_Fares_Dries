@@ -50,7 +50,7 @@ public class Computer {
                 ", identifiant=" + identifiant +
                 ", processor=" + processor +
                 ", os=" + os +
-//                ", peripheriques=" + peripheriques +
+               ", peripheriques=" + peripheriques +
                 '}';
     }
 }

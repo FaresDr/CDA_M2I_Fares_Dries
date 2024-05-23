@@ -92,7 +92,7 @@ public class IHM {
         computer.setPeripheriques(new ArrayList<>());
         em.getTransaction().begin();
 //        computer.add(em.find(Peripherique.class,1));
-      computer.add(em.find(Peripherique.class,3));
+      computer.add(em.find(Peripherique.class,1));
         em.persist(computer);
         em.flush();
         em.getTransaction().commit();
@@ -100,7 +100,7 @@ public class IHM {
     private void addComputerToPeri() {
         Peripherique peri = showPheriById();
         em.getTransaction().begin();
-        peri.add(em.find(Computer.class,1));
+        peri.add(em.find(Computer.class,2));
         em.persist(peri);
         em.flush();
         em.getTransaction().commit();

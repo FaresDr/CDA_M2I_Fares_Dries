@@ -35,7 +35,7 @@ public class Peripherique {
         return "Peripherique{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", computers=" + computersP +
+//                ", computers=" + computersP +
                 '}';
     }
 }
