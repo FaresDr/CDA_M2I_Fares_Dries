@@ -31,6 +31,6 @@ public class AdressRepository extends BaseRepository<Adresse>{
 
     @Override
     public List<Adresse> findAll() {
-        return em.createQuery("SELECT c from Adresse c").getResultList();
+        return em.createQuery("SELECT c from Adresse c",Adresse.class).getResultList();
     }
 }

@@ -29,6 +29,6 @@ public class LieuRepository extends BaseRepository<Lieu>{
 
     @Override
     public List<Lieu> findAll() {
-        return em.createQuery("SELECT l from Lieu l").getResultList();
+        return em.createQuery("SELECT l from Lieu l",Lieu.class).getResultList();
     }
 }
