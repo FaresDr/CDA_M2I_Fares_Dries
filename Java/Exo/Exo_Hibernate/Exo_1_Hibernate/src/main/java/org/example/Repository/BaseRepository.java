@@ -17,10 +17,9 @@ public abstract class  BaseRepository<T> {
 
     Session session;
 
-    public BaseRepository(Session session, SessionFactory sessionFactory,StandardServiceRegistry registre) {
-               this.session = session;
-               this.registre= new StandardServiceRegistryBuilder().configure().build();
-               this.sessionFactory=new MetadataSources(registre).buildMetadata().buildSessionFactory() ;
+    public BaseRepository() {
+               registre= new StandardServiceRegistryBuilder().configure().build();
+               sessionFactory=new MetadataSources(registre).buildMetadata().buildSessionFactory() ;
     }
 
     public abstract void save (T element);

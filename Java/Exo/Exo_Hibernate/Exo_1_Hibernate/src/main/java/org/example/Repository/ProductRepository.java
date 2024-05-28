@@ -11,7 +11,7 @@ public class ProductRepository extends BaseRepository<Product>{
 
 
     public ProductRepository(Session session, SessionFactory sessionFactory, StandardServiceRegistry registre) {
-        super(session, sessionFactory, registre);
+        super();
     }
 
     @Override
