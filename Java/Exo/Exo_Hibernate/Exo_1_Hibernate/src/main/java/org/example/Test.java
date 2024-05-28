@@ -49,6 +49,8 @@ public class Test {
 
         pUpdate.setStock(23);
 
+        session.update(pUpdate);
+
         session.getTransaction().commit();
         //Fermeture de la session et la sessionfactory
         session.close();
