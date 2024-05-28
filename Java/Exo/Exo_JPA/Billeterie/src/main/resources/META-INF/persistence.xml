@@ -29,7 +29,7 @@
             <!-- Spécifie le nom d'utilisateur utilisé pour se connecter à la base de données.-->
             <property name="javax.persistence.jdbc.user" value="root" />
             <!-- Spécifie le mot de passe utilisé pour se connecter à la base de données.-->
-            <property name="javax.persistence.jdbc.password" value="Fares_Dries_59" />
+            <property name="javax.persistence.jdbc.password" value="" />
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
         </properties>
