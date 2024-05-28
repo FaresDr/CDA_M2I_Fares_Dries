@@ -129,5 +129,56 @@ public class Main {
             System.out.println(produit.getMarque());
             System.out.println(produit.getReference());
         }
+
+        System.out.println("-------------------------------------------");
+
+        System.out.println("Veuillez indiquer la marque voulu");
+        String marque =  sc.nextLine();
+        Query<Double> produitQueryPrice = session.createQuery("SELECT prix*stock from Produit as p where p.marque = :marque");
+        produitQueryPrice.setParameter("marque",marque);
+        Double produitsValue = produitQueryPrice.getSingleResult();
+        System.out.println(produitsValue);
+
+        System.out.println("-------------------------------------------");
+
+        System.out.println("Veuillez indiquer la marque voulu");
+
+        Query<Double> produitQueryAveragePrice = session.createQuery("SELECT avg(prix) from Produit");
+
+        Double produitsAverageValue = produitQueryAveragePrice.getSingleResult();
+        System.out.println(produitsAverageValue);
+
+        System.out.println("-------------------------------------------");
+
+        System.out.println("Veuillez entrer le nom de la marque voulue");
+        marque = sc.nextLine();
+        Query<Produit> productFromBrand = session.createQuery("from Produit WHERE marque =:marque");
+
+        productFromBrand.setParameter("marque",marque);
+
+
+
+        List<Produit> produitsFromBrand = productFromBrand.list();
+        for (Produit produit: produitsFromBrand) {
+            System.out.println(produit.toString());
+        }
+
+        System.out.println("-------------------------------------------");
+
+        System.out.println("Veuillez entrer le nom de la marque voulue");
+        marque = sc.nextLine();
+        Query<Produit> deleteProductFromBrand = session.createQuery("DELETE from Produit WHERE marque =:marque");
+        deleteProductFromBrand.setParameter("marque",marque);
+        session.getTransaction().begin();
+        int success = deleteProductFromBrand.executeUpdate(); // C'est le nombre de ligne affectée par la requete
+        session.getTransaction().commit();
+        System.out.println(success);
+
+
+
+
+
+
+
     }
 }
