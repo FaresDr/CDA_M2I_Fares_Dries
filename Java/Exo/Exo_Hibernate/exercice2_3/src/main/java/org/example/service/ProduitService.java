@@ -171,8 +171,9 @@ public class ProduitService extends BaseService implements Repository<Produit> {
 
     public List<Produit> getWhereAvgEvalAboveFour(){
         session = sessionFactory.openSession();
-        Query<Produit> getProductAbove4 = session.createQuery("select distinct Produit from Commentaire as c where c.Note>4");
-        List<Produit> produitsNotedAboveFour = getProductAbove4.list();
+        Query<Produit> getProductAbove = session.createQuery("select distinct c.produit from Commentaire as c where (c.Note)>4");
+
+        List<Produit> produitsNotedAboveFour = getProductAbove.list();
         session.close();
         return produitsNotedAboveFour;
     }

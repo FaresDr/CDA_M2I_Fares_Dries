@@ -204,14 +204,13 @@ public class Main {
 //            System.out.println(e.getMessage());
 //        }
 
-        List<Produit> produitList5 = ps.getWhereAvgEvalAboveFour(); ;
-            for (Produit p: produitList5) {
+        try {List<Produit> produitList5 = ps.getWhereAvgEvalAboveFour(); ;
+            for (Produit p: produitList5){
                 System.out.println(p.toString());
             }
-
-
-
-
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
 
 
