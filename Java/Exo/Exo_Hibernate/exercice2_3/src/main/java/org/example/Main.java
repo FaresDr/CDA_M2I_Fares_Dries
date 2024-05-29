@@ -39,7 +39,7 @@ public class Main {
 
       //  - Supprimer le produit dont id = 3,
 
-      //  ps.delete(ps.findById(3));
+      //  ps.delete(ps.findById(5));
       //  - Modifier les informations du produit dont id = 1,
 
         /*

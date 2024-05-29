@@ -31,10 +31,10 @@ public class Produit {
     @Temporal(TemporalType.DATE)
     private Date dateAchat;
 
-    @OneToMany(mappedBy = "produit")
+    @OneToMany(mappedBy = "produit",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Image> products = new ArrayList<>();
 
-    @OneToMany(mappedBy = "produit")
+    @OneToMany(mappedBy = "produit",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Commentaire> productsC = new ArrayList<>();
 
     public Produit() {
