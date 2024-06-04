@@ -15,7 +15,7 @@ public class GradingTest {
 
         char res = gradingCalculator.getGrade();
 
-        Assert.assertEquals(res,'A');
+        Assert.assertEquals('A',res);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class GradingTest {
 
         char res = gradingCalculator.getGrade();
 
-        Assert.assertEquals(res,'B');
+        Assert.assertEquals('B',res);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class GradingTest {
 
         char res = gradingCalculator.getGrade();
 
-        Assert.assertEquals(res,'C');
+        Assert.assertEquals('C',res);
     }
     @Test
     public void When_Score_95_And_Presence_65_Then_B(){
@@ -48,7 +48,7 @@ public class GradingTest {
 
         char res = gradingCalculator.getGrade();
 
-        Assert.assertEquals(res,'B');
+        Assert.assertEquals('B',res);
     }
     @Test
     public void When_Score_95_And_Presence_55_Then_F(){
@@ -58,7 +58,7 @@ public class GradingTest {
 
         char res = gradingCalculator.getGrade();
 
-        Assert.assertEquals(res,'F');
+        Assert.assertEquals('F',res);
     }
     @Test
     public void When_Score_65_And_Presence_55_Then_F(){
@@ -68,7 +68,7 @@ public class GradingTest {
 
         char res = gradingCalculator.getGrade();
 
-        Assert.assertEquals(res,'F');
+        Assert.assertEquals('F',res);
     }
     @Test
     public void When_Score_50_And_Presence_90_Then_F(){
@@ -78,7 +78,7 @@ public class GradingTest {
 
         char res = gradingCalculator.getGrade();
 
-        Assert.assertEquals(res,'F');
+        Assert.assertEquals('F',res);
     }
 
 }
