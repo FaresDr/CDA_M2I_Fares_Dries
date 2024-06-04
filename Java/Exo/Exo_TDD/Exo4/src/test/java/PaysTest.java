@@ -33,7 +33,7 @@ public class PaysTest {
     }
 
     @Test
-    public void If_Search_Contains_Part_Of_String(){
+    public void If_Search_Contains_Part_Of_String_Then_Return_The_Country(){
         rechercheVille = new RechercheVille();
         List<String> result = rechercheVille.getPays("ape");
         List<String> expected = Arrays.asList(new String[]{"Budapest"});
@@ -41,7 +41,7 @@ public class PaysTest {
     }
 
     @Test
-    public void If_Search_Is_Asterisk(){
+    public void If_Search_Is_Asterisk_Then_Return_All_Countries(){
         rechercheVille = new RechercheVille();
         List<String> result = rechercheVille.getPays("*");
         List<String> expected = Arrays.asList(new String[]{"Paris","Budapest", "Skojpe","Rotterdam","Valence","Amsterdam","Vienne","Sydney","New York","Londres","Bangok","Hong Kong","Dubai","Rome","Instanbul","Vancouver"});
