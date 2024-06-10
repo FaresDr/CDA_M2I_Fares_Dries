@@ -11,7 +11,7 @@ public class TestBowling {
 
     private final IGenerateur generateur = Mockito.mock(IGenerateur.class);
 
-    Frame frame2 = new Frame(generateur,true);
+
 
 
 
@@ -25,7 +25,7 @@ public class TestBowling {
 
         frame.makeRoll();
         Assert.assertEquals(10,frame.getScore());
-        frame.setScore(frame.getScore());
+
     }
     @Test
     public void Roll_SimpleFrame_SecondRoll_CheckScore(){
