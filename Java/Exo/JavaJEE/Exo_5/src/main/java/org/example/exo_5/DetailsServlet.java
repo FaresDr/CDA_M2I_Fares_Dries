@@ -10,29 +10,35 @@ import org.example.exo_5.model.Dogs;
 import org.example.exo_5.repository.DogsService;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "ListServlet", value = "/dogs/list")
+@WebServlet(name = "DetailsServlet", value = "/dogs/details/*")
 
-public class ListServlet extends HttpServlet {
+public class DetailsServlet extends HttpServlet {
 
     public DogsService ds;
-    public List<Dogs> dogsList;
-
     @Override
     public void init() throws ServletException {
         ds = new DogsService();
-
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        dogsList = ds.findAll();
-        req.setAttribute("dogs",dogsList);
+
+        String id = req.getPathInfo().substring(1);
+        System.out.println(id);
+        int ids = Integer.parseInt(id);
+        Dogs dog = ds.findById(ids);
+        System.out.println(dog.toString());
+        req.setAttribute("Dogs",dog);
 
 
-        getServletContext().getRequestDispatcher("/list.jsp").forward(req,resp);
+        getServletContext().getRequestDispatcher("/dogDetails.jsp").forward(req,resp);
     }
 
 
+
+    @Override
+    public void destroy() {
+        super.destroy();
+    }
 }

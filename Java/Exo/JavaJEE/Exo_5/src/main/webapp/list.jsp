@@ -31,7 +31,7 @@
                     <td><%= dogs.get(i).getNom() %></td>
                     <td><%= dogs.get(i).getRace() %></td>
                     <td><%= dogs.get(i).getDateofbirth() %></td>
-                    <td><button class="btn btn-outline-secondary">Details</button></td>
+                    <td><a href="${pageContext.request.contextPath}/dogs/details/<%= dogs.get(i).getId() %>"><button class="btn btn-outline-secondary" >Details</button></a></td>
                 </tr>
                 <% } %>
 
