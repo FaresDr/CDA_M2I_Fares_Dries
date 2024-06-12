@@ -39,7 +39,7 @@ public class CatServlet extends HttpServlet {
         Cat c = new Cat(name,breed,date,meal);
         catList.add(c);
         for (Cat chat : catList){
-            System.out.println(c.toString());
+            System.out.println(chat.toString());
         }
         System.out.println("--------------------------");
         req.setAttribute("cats",catList);
