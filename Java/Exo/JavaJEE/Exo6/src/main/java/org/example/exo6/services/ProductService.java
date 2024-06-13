@@ -68,4 +68,16 @@ public class ProductService {
         }
         return productList;
     }
+
+    public boolean Delete(int id){
+        Product o = getProduct(id);
+        session = _sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(o);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+
 }

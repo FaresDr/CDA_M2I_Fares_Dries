@@ -1,3 +1,5 @@
+<%@ page import="org.example.exo6.services.ProductService" %>
+<%@ page import="org.example.exo6.util.HibernateSession" %>
 <jsp:useBean id="products" type="java.util.ArrayList<org.example.exo6.model.Product>" scope="request" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -12,6 +14,7 @@
     <div class="row my-3">
         <div class="col-8 offset-2 text-bg-dark rounded p-3">
             <h1 class="fw-light">- Product List -</h1>
+            <% ProductService ps = new ProductService(HibernateSession.getSessionFactory());%>
             <% if (!products.isEmpty()){%>
             <hr>
             <table class="table table-dark text-center align-middle">
@@ -36,6 +39,7 @@
                     <td><%= products.get(i).getDateAchat() %></td>
                     <td><%= products.get(i).getPrice() %></td>
                     <td><%= products.get(i).getStock() %></td>
+                    <td><a href="${pageContext.request.contextPath}/product/delete/<%= products.get(i).getId() %>"><button class="btn btn-outline-danger" >Delete</button></a></td>
 
 
                 </tr>
