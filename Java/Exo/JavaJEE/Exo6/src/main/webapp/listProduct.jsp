@@ -53,6 +53,7 @@
             </table>
             <% } else { %>
             <p>Aucun Produit dans la liste</p>
+            <td><a href="/Exo6_war_exploded/product/add"><button class="btn btn-outline-secondary">Retour à la page d'ajout</button></a></td>
             <% }  %>
         </div>
     </div>

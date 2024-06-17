@@ -34,9 +34,11 @@ public class DeleteServlet extends HttpServlet {
         ps.Delete(ids);
 
         productList = ps.getProduct();
-        req.setAttribute("products",productList);
+//        req.setAttribute("products",productList);
+
+        resp.sendRedirect("/Exo6_war_exploded/product/list");
+//        getServletContext().getRequestDispatcher("/product/list").forward(req,resp);
 
 
-        getServletContext().getRequestDispatcher("/product/list").forward(req,resp);
     }
 }
