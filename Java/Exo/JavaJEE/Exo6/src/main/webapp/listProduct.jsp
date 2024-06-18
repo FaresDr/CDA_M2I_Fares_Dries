@@ -20,18 +20,21 @@
             <table class="table table-dark text-center align-middle">
                 <thead>
                 <tr>
+                    <th>Image</th>
                     <th>#</th>
                     <th>Nom</th>
                     <th>Marque</th>
                     <th>Reference</th>
                     <th>DateAchat</th>
                     <th>Prix</th>
-                    <th>stock</th>
+                    <th>Stock</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <% for (int i = 0; i < products.size();i++) { %>
                 <tr>
+                    <td> <img src="<%= products.get(i).getUrl() %>" alt="Card image cap" width="250" height="250"></td>
                     <td><%= products.get(i).getId() %></td>
                     <td><%= products.get(i).getNom() %></td>
                     <td><%= products.get(i).getMarque() %></td>

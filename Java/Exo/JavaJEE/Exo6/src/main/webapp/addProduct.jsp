@@ -11,7 +11,7 @@
 <div class="col-8 offset-2 rounded text-bg-dark p-3">
     <h1 class="fw-light">- Add Product -</h1>
     <hr>
-    <form method="post" action="${pageContext.request.contextPath}/product/add">
+    <form method="post" action="${pageContext.request.contextPath}/product/add" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="nom" class="form-label">Nom Du produit :</label>
             <input type="text" class="form-control" name="nom" id="nom" required>
@@ -35,6 +35,10 @@
         <div class="mb-3">
             <label for="stock" class="form-label">Stock :</label>
             <input type="number" class="form-control" name="stock" id="stock" required>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image :</label>
+            <input type="file" class="form-control" name="image" id="image" required>
         </div>
 
         <button class="text-end btn btn-outline-success">Ajouter Produit</button>

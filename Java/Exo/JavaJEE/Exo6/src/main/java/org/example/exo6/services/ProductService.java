@@ -34,12 +34,12 @@ public class ProductService {
         return product;
     }
 
-    public boolean createProduct(String name, String marque, String reference, LocalDate dateAchat, double price, int stock ){
+    public boolean createProduct(String name, String marque, String reference, LocalDate dateAchat, double price, int stock,String url ){
         boolean result = false;
         session = _sessionFactory.openSession();
         session.beginTransaction();
         productRepository= new ProductRepository(session);
-        Product product = Product.builder().nom(name).marque(marque).reference(reference).dateAchat(dateAchat).price(price).stock(stock).build();
+        Product product = Product.builder().nom(name).marque(marque).reference(reference).dateAchat(dateAchat).price(price).stock(stock).url(url).build();
         try {
             productRepository.create(product);
             session.getTransaction().commit();

@@ -27,6 +27,7 @@
 
         <button class="text-end btn btn-outline-success">Connexion</button>
     </form>
+    <a href="/Exo6_war_exploded/users/signup"><button class="btn btn-outline-secondary">Inscription</button></a>
 </div>
 
 
