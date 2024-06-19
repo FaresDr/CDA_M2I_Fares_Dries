@@ -49,6 +49,13 @@ public class VoitureRessource {
         return voitureService.save(voiture.getId(), voiture.getMarque(), voiture.getModele(), voiture.getAnnee(), voiture.getCouleur());
     }
 
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Voiture deleteVoiture(@PathParam("id")int id){
+      return  voitureService.getVoitureList().remove(id-1);
+    }
+
 
 
 
