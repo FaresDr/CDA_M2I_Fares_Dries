@@ -1,9 +1,9 @@
 package org.example.exo_8;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.example.exo_8.service.VoitureService;
 
 import java.time.Year;
 import java.util.ArrayList;
@@ -13,31 +13,43 @@ import java.util.List;
 @Path("/cars")
 public class VoitureRessource {
 
+    private final VoitureService voitureService;
+
+
+    @Inject
+    public VoitureRessource(VoitureService voitureService){
+        this.voitureService = voitureService;
+    }
 
 
 
 
-        @GET
-        @Path("/one")
-        @Produces("application/json")
-        public Voiture getOneCar(){
+    @GET
+    @Path("/{id}")
+    @Produces("application/json")
+    public Voiture getOneCar(@PathParam("id")int id){
 
-            return new Voiture(1,"Ferrari","La Ferrari", "2012","Rouge");
-        }
+        return voitureService.getVoitureList().get(id-1);
+            //return new Voiture(1,"Ferrari","La Ferrari", "2012","Rouge");
+    }
 
 
-        @GET
-        @Path("")
-        @Produces(MediaType.APPLICATION_JSON)
-        public List<Voiture> getOtherPerson(){
-            List<Voiture> voitureList = new ArrayList<>();
-            Voiture v1 = Voiture.builder().annee("2002").id(2).couleur("Noir").modele("Skyline GT-R V-Spec II ").marque("Nissan").build();
-            voitureList.add(v1);
-            Voiture v2 = Voiture.builder().marque("Toyota Corola").modele("AE86 Trueno").couleur("Panda").id(3).annee("1998").build();
-            voitureList.add(v2);
-            return voitureList;
+    @GET
+    @Path("")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Voiture> getOtherPerson() {
+        return voitureService.getVoitureList();
+    }
 
-        }
+    @POST
+    @Path("/create")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Voiture postVoiture(Voiture voiture){
+        return voitureService.save(voiture.getId(), voiture.getMarque(), voiture.getModele(), voiture.getAnnee(), voiture.getCouleur());
+    }
+
+
 
 
 }
