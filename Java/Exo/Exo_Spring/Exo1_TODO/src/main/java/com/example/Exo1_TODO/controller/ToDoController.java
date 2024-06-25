@@ -27,7 +27,6 @@ public class ToDoController {
 
 
 
-
         return "details";
     }
     @RequestMapping("/all")

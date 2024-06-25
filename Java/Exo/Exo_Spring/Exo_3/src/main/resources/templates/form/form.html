@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+</head>
+<body>
+<h1>Mon formulaire</h1>
+<a th:href="@{/}">Home</a>
+
+<form th:action="@{/add}" th:object="${student}" method="post">
+    <div>
+        <label for="name">Nom de l'élève :</label>
+        <input type="text" id="name" th:field="*{name}">
+    </div>
+    <div>
+        <label for="lastname">Prenom de l'élève  :</label>
+        <input type="text" id="lastname" th:field="*{lastname}">
+    </div>
+    <div>
+        <label for="email">Email de l'élève :</label>
+        <input type="text" id="email" th:field="*{email}">
+    </div>
+    <button>Submit</button>
+</form>
+</body>
+</html>
