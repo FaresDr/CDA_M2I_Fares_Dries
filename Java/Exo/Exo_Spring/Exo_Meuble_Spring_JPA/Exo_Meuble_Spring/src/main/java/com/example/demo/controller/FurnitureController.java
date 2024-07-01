@@ -31,6 +31,7 @@ public class FurnitureController {
 
     @PostMapping("/addFurniture")
     public String addPerson(@ModelAttribute("person") Furniture furniture){
+        System.out.println(Long.valueOf(furniture.getId()));
         if (Long.valueOf(furniture.getId()) == null)  {
             furnitureServices.save(furniture);
         }else {

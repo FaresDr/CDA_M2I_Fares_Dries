@@ -14,6 +14,10 @@
 <div class="p-3 mb-2  text-white">
 <form class="form-inline" th:action="@{/addFurniture}" th:object="${furniture}" method="post">
     <div class="form-group">
+
+        <input type="hidden" th:field="*{id}" class="form-control" id="id">
+    </div>
+    <div class="form-group">
         <label for="name">Nom</label>
         <input type="text" th:field="*{name}" class="form-control" id="name">
     </div>
