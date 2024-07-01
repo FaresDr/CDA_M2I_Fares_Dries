@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail de la categorie</title>
+</head>
+<body>
+<h2>Détail du contact</h2>
+<p>Nom : <span th:text="${category.getName()}"></span></p>
+<p>Description : <span th:text="${category.getDescription()}"></span></p>
+
+<a th:href="@{/category/list}">retour</a>
+<a th:href="@{/category/delete/{id}(id=${category.getId()})}">supprimer</a>
+<a th:href="@{/category/update/{id}(id=${category.getId()})}">update</a>
+<a th:href="@{/}">Home Page</a>
+</body>
+</html>

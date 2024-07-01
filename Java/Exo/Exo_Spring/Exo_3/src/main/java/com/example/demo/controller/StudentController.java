@@ -4,10 +4,7 @@ import com.example.demo.model.Student;
 import com.example.demo.services.StudentServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -33,12 +30,18 @@ public class StudentController {
 
     @PostMapping("/add")
     public String submitStudent(@ModelAttribute("student") Student student) {
+        System.out.println(student);
         System.out.println(student.getName());
         System.out.println(student.getLastname());
         System.out.println(student.getEmail());
-        Student s = Student.builder().name(student.getName()).lastname(student.getLastname()).email(student.getEmail()).id(UUID.randomUUID()).build();
-        System.out.println(s.toString());
-        studentServices.add(s);
+        System.out.println(student.getId());
+        if (student.getId() == null) {
+            Student s = Student.builder().name(student.getName()).lastname(student.getLastname()).email(student.getEmail()).id(UUID.randomUUID()).build();
+            System.out.println(s.toString());
+            studentServices.add(s);
+        }else {
+            studentServices.updateStudent(student.getName(),student.getLastname(),student.getEmail(),student.getId());
+        }
         return "redirect:/list";
     }
 
@@ -54,5 +57,30 @@ public class StudentController {
         Student student = studentServices.getById(studentid);
         model.addAttribute("student", student);
         return "detail";
+    }
+
+    @GetMapping("/search")
+    public String getByName(@RequestParam(name = "name", required = false) String name, @RequestParam(name = "lastname",required = false) String lastname,  Model model){
+        System.out.println(name);
+        System.out.println(lastname);
+        List<Student> students = studentServices.getByNameAndLastName(name,lastname);
+        System.out.println(students);
+        model.addAttribute("students", students);
+
+        return "list";
+    }
+    @GetMapping("/delete/{studentid}")
+    public String delete(@PathVariable("studentid")UUID studentid){
+        studentServices.deleteStudent(studentid);
+        return "redirect:/list";
+    }
+    @GetMapping("/update/{studentid}")
+    public String update(@PathVariable("studentid")UUID studentid, Model model){
+        System.out.println(studentid);
+       Student s = studentServices.getById(studentid);
+       if(s!=null){
+           model.addAttribute("student",s);
+       }
+        return "form/form";
     }
 }

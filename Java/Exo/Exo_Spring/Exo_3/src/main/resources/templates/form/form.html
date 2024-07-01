@@ -10,6 +10,9 @@
 
 <form th:action="@{/add}" th:object="${student}" method="post">
     <div>
+        <input type="hidden" id="id" th:field="*{id}" readonly>
+    </div>
+    <div>
         <label for="name">Nom de l'élève :</label>
         <input type="text" id="name" th:field="*{name}">
     </div>

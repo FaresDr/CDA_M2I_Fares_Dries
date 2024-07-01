@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+</head>
+<body>
+
+
+<main class="container">
+    <h1>Formulaire</h1>
+    <form th:action="@{/recipe/add}" th:object="${recipe}" method="post">
+        <input th:field="*{id}" type="hidden">
+
+        <div class="mb-3">
+            <label for="recipename" class="form-label">Nom</label>
+            <input th:field="*{name}" type="text" class="form-control" id="recipename">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+        <div class="mb-3">
+            <label for ="category" class="form-label">Catégorie</label>
+            <select id="category" th:field="*{categorie}">
+                <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="ingredients" class="form-label">Ingredients</label>
+            <input  th:field="*{ingredients}"  type="text" class="form-control" id="ingredients">
+
+        </div>
+        <div class="mb-3">
+            <label for="instructions" class="form-label">Instructions</label>
+            <input th:field="*{instructions}"  type="text" class="form-control" id="instructions">
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">
+            <span th:text="${recipe.getId() != null ? 'Modifier' : 'Ajouter'}"></span>
+        </button>
+    </form>
+</main>
+
+
+</body>
+</html>

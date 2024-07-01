@@ -10,6 +10,8 @@
 <p>Prénom : <span th:text="${student.getLastname()}"></span></p>
 <p>Email : <span th:text="${student.getEmail()}"></span></p>
 <a th:href="@{/list}">retour</a>
+<a th:href="@{/delete/{id}(id=${student.getId()})}">supprimer</a>
+<a th:href="@{/update/{id}(id=${student.getId()})}">update</a>
 <a th:href="@{/}">Home Page</a>
 </body>
 </html>
