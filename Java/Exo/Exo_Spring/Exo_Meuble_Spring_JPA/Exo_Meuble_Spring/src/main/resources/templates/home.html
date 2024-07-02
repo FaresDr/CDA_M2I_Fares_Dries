@@ -30,12 +30,12 @@
         <th th:text="${furniture.stock}"></th>
         <th th:text="${furniture.price}"></th>
         <th>
-            <a th:href="@{/delete/{id}(id=${(furniture.getId())})}"><button class="btn btn-danger">Supprimer </button></a>
-            <a th:href="@{/update/{id}(id=${(furniture.getId())})}"><button class="btn btn-info">Update </button></a>
+            <a th:href="@{/furniture/delete/{id}(id=${(furniture.getId())})}"><button class="btn btn-danger">Supprimer </button></a>
+            <a th:href="@{/furniture/update/{id}(id=${(furniture.getId())})}"><button class="btn btn-info">Update </button></a>
         </th>
     </tr>
 </table>
-<a th:href="@{/addForm}"><button class="btn btn-primary">Page d'ajout </button></a>
+<a th:href="@{/furniture/addForm}"><button class="btn btn-primary">Page d'ajout </button></a>
 
 </body>
 </html>

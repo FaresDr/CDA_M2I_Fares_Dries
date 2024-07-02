@@ -12,7 +12,7 @@
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
 <div class="p-3 mb-2  text-white">
-<form class="form-inline" th:action="@{/addFurniture}" th:object="${furniture}" method="post">
+<form class="form-inline" th:action="@{/furniture/addFurniture}" th:object="${furniture}" method="post">
     <div class="form-group">
 
         <input type="hidden" th:field="*{id}" class="form-control" id="id">
@@ -35,7 +35,7 @@
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
 </form>
-    <a th:href="@{/}"><button class="btn btn-primary">Page d'accueil </button></a>
+    <a th:href="@{/furniture}"><button class="btn btn-primary">Page d'accueil </button></a>
 </div>
 </body>
 </html>

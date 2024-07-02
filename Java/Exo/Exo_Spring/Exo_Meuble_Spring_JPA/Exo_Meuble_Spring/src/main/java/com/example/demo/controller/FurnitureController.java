@@ -17,19 +17,19 @@ public class FurnitureController {
 
     public FurnitureController(FurnitureServices furnitureServices) {this.furnitureServices = furnitureServices;}
 
-    @GetMapping("/")
+    @GetMapping("/furniture")
     public String home(Model model){
         model.addAttribute("meubles", furnitureServices.findAll());
         return "home";
     }
 
-    @GetMapping("/addForm")
+    @GetMapping("/furniture/addForm")
     public String addForm(Model model){
         model.addAttribute("furniture", new Furniture());
         return "furnitureForm";
     }
 
-    @PostMapping("/addFurniture")
+    @PostMapping("/furniture/addFurniture")
     public String addPerson(@ModelAttribute("person") Furniture furniture){
         System.out.println(Long.valueOf(furniture.getId()));
         if (Long.valueOf(furniture.getId()) == null)  {
@@ -40,12 +40,12 @@ public class FurnitureController {
         return "redirect:/";
     }
 
-    @GetMapping("/delete/{idmeuble}")
+    @GetMapping("/furniture/delete/{idmeuble}")
     public String delete(@PathVariable("idmeuble") Long idmeuble){
         furnitureServices.delete(furnitureServices.findById(idmeuble));
         return "redirect:/";
     }
-    @GetMapping("/update/{idmeuble}")
+    @GetMapping("/furniture/update/{idmeuble}")
     public String formUpdate(@PathVariable("idmeuble") Long idmeuble, Model model){
         Furniture furniture = furnitureServices.findById(idmeuble);
         model.addAttribute("furniture", furniture);
