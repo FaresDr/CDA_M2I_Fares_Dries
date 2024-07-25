@@ -1,0 +1,16 @@
+# Image de base
+FROM nginx
+
+LABEL version="1.0"
+
+# définir un répertoire de travail
+WORKDIR /usr/share/nginx/html
+
+# Copie de repertoire courant vers le workdir
+COPY ./html5up-massively .
+
+EXPOSE 8080
+
+#definir la commande par défaut
+
+

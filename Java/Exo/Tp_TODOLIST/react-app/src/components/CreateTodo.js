@@ -47,10 +47,10 @@ const CreateTodo = () => {
     // Le code JSX reste le même que dans l'exemple précédent
     return (
         <div className="container mt-5">
-        <h2>Créer un nouveau produit</h2>
+        <h2>Créer une nouvelle TODO</h2>
         <form onSubmit={handleSubmit}>
             <div className="mb-3">
-                <label htmlFor="productName" className="form-label">Nom</label>
+                <label htmlFor="productName" className="form-label">Title</label>
                 <input 
                     type="text" 
                     className="form-control" 
@@ -61,7 +61,7 @@ const CreateTodo = () => {
                 />
             </div>
             <div className="mb-3">
-                <label htmlFor="productPrice" className="form-label">Prix</label>
+                <label htmlFor="productPrice" className="form-label">Description</label>
                 <input 
                     type="text" 
                     className="form-control" 

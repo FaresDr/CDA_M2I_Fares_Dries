@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import  {todoService}  from '../services/todoService';
-import UpdateProductModal from './UpdateProductModal';
+import UpdateProductModal from './UpdateTodoModal';
 import { jwtDecode } from "jwt-decode";
 
 
